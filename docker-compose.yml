@@ -1,0 +1,49 @@
+version: '3.9'
+
+services:
+    app:
+        build:
+            context: '.'
+        container_name: TwinklServer
+        ports:
+            - "8008:80"
+        environment:
+            - APACHE_RUN_USER=#1000
+            - APACHE_RUN_GROUP=#1000
+        volumes:
+            - .:/var/www/html
+            - ./php:/usr/local/etc/php/conf.d
+        networks:
+            backend:
+                aliases:
+                    - app
+        depends_on:
+            - mysql-db
+
+    mysql-db:
+        image: mysql:8.0
+        container_name: mysql-db
+        ports:
+            - "33066:3306"
+        volumes:
+            - ./run/var:/var/lib/mysql
+        env_file: .env
+        networks:
+            backend:
+                aliases:
+                    - mysql-db
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        links:
+            - mysql-db
+        ports:
+            - "8009:80"
+        env_file: .env
+        networks:
+            backend:
+                aliases:
+                    - phpmyadmin
+
+networks:
+    backend:
+        name: backend-network
