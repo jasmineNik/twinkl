@@ -23,3 +23,5 @@
 10. The phpmyadmin could be found in http://localhost:8009 
 11. For requesting please use http://localhost:8008/api
 12. Add your creds for email sending in .env file
+13. Please find the API endpoints collection in Twinkl.postman_collection.json file
+14. Please find the API endpoint doc in 
