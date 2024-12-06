@@ -13,7 +13,7 @@
     PMA_PASSWORD=${MYSQL_ROOT_PASSWORD}
 4. Run docker compose build
 5. Run docker compose up -d
-6. Enter docker exec -it --user=www-data Server bash
+6. Enter docker exec -it TwinklServer bash
 7. Genetare the key 
    php artisan key:generate
 8. Run migrations 
@@ -22,3 +22,4 @@
     php artisan db:seed
 10. The phpmyadmin could be found in http://localhost:8009 
 11. For requesting please use http://localhost:8008/api
+12. Add your creds for email sending in .env file
