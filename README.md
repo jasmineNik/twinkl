@@ -14,14 +14,16 @@
 4. Run docker compose build
 5. Run docker compose up -d
 6. Enter docker exec -it TwinklServer bash
-7. Genetare the key 
+7. Run composer install
+8. Genetare the key 
    php artisan key:generate
-8. Run migrations 
+9. Run migrations 
     php artisan migrate
-9. Run database seeding 
+10. Run database seeding 
     php artisan db:seed
-10. The phpmyadmin could be found in http://localhost:8009 
-11. For requesting please use http://localhost:8008/api
-12. Add your creds for email sending in .env file
-13. Please find the API endpoints collection in Twinkl.postman_collection.json file
-14. Please find the API endpoint doc in 
+11. The phpmyadmin could be found in http://localhost:8009 
+12. For requesting please use http://localhost:8008/api
+13. Add your creds for email sending in .env file
+14. Please find the API endpoints collection in Twinkl.postman_collection.json file
+15. Please find the API endpoint doc in 
+
