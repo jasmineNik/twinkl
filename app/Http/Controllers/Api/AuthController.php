@@ -7,7 +7,6 @@ use App\Http\Requests\Api\UserRequest;
 use App\Models\User;
 use App\Notifications\UserRegister;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Notification;
 
@@ -35,7 +34,7 @@ class AuthController extends BaseController
         // Sending an email to registered user
         Notification::send($user, new UserRegister($user));
 
-        return $this->success( __('auth.register.success'), ['access_token' => $token]);
+        return $this->success(__('auth.register.success'), ['access_token' => $token]);
     }
 
     /**
@@ -45,11 +44,11 @@ class AuthController extends BaseController
     public function login(UserRequest $request): JsonResponse
     {
         $data = $request->validated();
-        $user = User::where('email',$data['email'])->first();
-        if(!$user || !Hash::check($data['password'],$user->password)){
+        $user = User::where('email', $data['email'])->first();
+        if (!$user || !Hash::check($data['password'], $user->password)) {
             return $this->error(__('auth.login.error'), 401);
         }
-        $token = $user->createToken($user->name.'-AuthToken')->plainTextToken;
-        return $this->success( __('auth.login.success'), ['access_token' => $token] );
+        $token = $user->createToken($user->name . '-AuthToken')->plainTextToken;
+        return $this->success(__('auth.login.success'), ['access_token' => $token]);
     }
 }

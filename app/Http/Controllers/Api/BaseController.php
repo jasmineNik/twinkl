@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 class BaseController extends Controller
 {
@@ -16,7 +15,7 @@ class BaseController extends Controller
      */
     protected function success(string $message = 'success', array $data = [], int $code = 200): JsonResponse
     {
-       return $this->response(true,$message, $code,  $data);
+        return $this->response(true, $message, $code, $data);
     }
 
     /**

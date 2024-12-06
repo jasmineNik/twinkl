@@ -17,7 +17,7 @@ class LocalizationHelper
         $locale = app()->getLocale();
         if ($request->hasHeader('Accept-Language')) {
             $locale = $request->header("Accept-Language");
-            if(str_contains($locale, '-')){
+            if (str_contains($locale, '-')) {
                 $locale = explode('-', $locale)[0];
             }
             session()->put('language', $locale);

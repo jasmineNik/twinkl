@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use Database\Factories\SubscriptionFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Subscription extends Model
 {
-    /** @use HasFactory<\Database\Factories\SubscriptionFactory> */
+    /** @use HasFactory<SubscriptionFactory> */
     use HasFactory;
 
     public function user(): HasOne

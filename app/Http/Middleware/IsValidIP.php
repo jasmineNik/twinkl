@@ -11,23 +11,26 @@ class IsValidIP
 {
     /**
      * Handle an incoming request.
-     *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     * @param Closure(Request): (Response) $next
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(!$this->isValidIP($request->getClientIps())) {
+        if (!$this->isValidIP($request->getClientIps())) {
             abort(Response::HTTP_FORBIDDEN);
         }
         return $next($request);
     }
 
+    /**
+     * @param $ips
+     * @return bool
+     */
     protected function isValidIP($ips): bool
     {
         $ip_list = IPBlockList::select('address')
             ->wherein('address', $ips)
             ->get();
-        if(count($ip_list) > 0) return false;
+        if (count($ip_list) > 0) return false;
         return true;
     }
 }
