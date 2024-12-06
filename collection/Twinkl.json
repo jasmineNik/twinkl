@@ -1,0 +1,142 @@
+{
+	"info": {
+		"_postman_id": "436f81d2-b445-4279-a982-363e294aa1c4",
+		"name": "Twinkl",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "7329657-436f81d2-b445-4279-a982-363e294aa1c4"
+	},
+	"item": [
+		{
+			"name": "login",
+			"id": "3887b705-9df9-4d53-8cb7-c97bec7f2989",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"rachael69@example.net\",\n    \"password\": \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8008/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8008",
+					"path": [
+						"api",
+						"login"
+					]
+				},
+				"description": "| Field name | Required | **Type** |\n| --- | --- | --- |\n| login | required | string |\n| password | required | string |\n\n|  |  |\n| --- | --- |\n|  |  |"
+			},
+			"response": []
+		},
+		{
+			"name": "register",
+			"id": "15786805-d3a5-4089-9254-447725eba09e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"rachael69@example.net\",\n    \"name\" : \"Jasmine\",\n    \"last_name\" : \"Beeh\",\n    \"type_id\" : 1,\n    \"subscription_id\": 2,\n    \"password\": \"User12345!\",\n    \"password_confirmation\": \"User12345!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8008/api/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8008",
+					"path": [
+						"api",
+						"register"
+					]
+				},
+				"description": "| Filed | required | **type** | Possible values |\n| --- | --- | --- | --- |\n| name | required | string |  |\n| last_name | required | string |  |\n| email | required | email | string |\n| type_id | required | int | 1 - Student  <br>2 -Teacher  <br>3 - Parent  <br>4 - Private tutor |\n| subscription_id | required | int | 1 - Free (trial)  <br>2 - Monthly  <br>3 - 3 months  <br>4 - Yearly |\n| password | required | string | it must contain letters, mixed case, number and symbol |\n| password_confirmation | required | string |  |"
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"id": "4679b534-fbb2-406a-8c99-6355e5c56c60",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8008/api/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8008",
+					"path": [
+						"api",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "1|ubrBXIp6H8XdWGghAsPwfpsfiUKJKeO5KKuVdZl23383288b",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "7ee36a7a-df49-4c7c-bfc4-3a607ef3f9a4",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "c96d15eb-133a-4a88-a3ee-0418a2bde8cc",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
