@@ -1,4 +1,4 @@
-1.Clone the repo 
+1. Clone the repo 
     git clone https://github.com/jasmineNik/twinkl.git
 2. Copy .env.example file to .env
     cp .env.example .env
