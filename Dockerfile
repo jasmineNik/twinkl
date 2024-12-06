@@ -56,3 +56,7 @@ COPY . .
 RUN chown www-data:www-data storage -R
 RUN chmod -R 777 storage
 RUN composer install
+RUN cp .env.example .env
+RUN php artisan key:generate
+RUN php artisan migrate
+RUN php artisan db:seed
