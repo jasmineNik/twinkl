@@ -45,18 +45,10 @@ RUN docker-php-ext-install  \
 # 5. Composer.
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 COPY . .
-## 6. We need a user with the same UID/GID as the host user
-## so when we execute CLI commands, all the host file's permissions and ownership remain intact.
-## Otherwise commands from inside the container would create root-owned files and directories.
-#ARG uid
-#RUN useradd -G www-data,root -u $uid -d /home/hnikolyan@universe.dart.spb hnikolyan@universe.dart.spb
-#RUN mkdir -p /home/hnikolyan@universe.dart.spb/.composer && \
-#    chown -R hnikolyan@universe.dart.spb:hnikolyan@universe.dart.spb /home/hnikolyan@universe.dart.spb
 
 RUN chown www-data:www-data storage -R
 RUN chmod -R 777 storage
+# install all dependances for laravel
 RUN composer install
-RUN cp .env.example .env
+# Generate the app key
 RUN php artisan key:generate
-RUN php artisan migrate
-RUN php artisan db:seed
