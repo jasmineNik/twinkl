@@ -25,5 +25,5 @@
 12. For requesting please use http://localhost:8008/api
 13. Add your creds for email sending in .env file
 14. Please find the API endpoints collection in Twinkl.postman_collection.json file
-15. Please find the API endpoint doc in 
+15. Please find the API endpoint doc in collection/Twinkl.json file
 
