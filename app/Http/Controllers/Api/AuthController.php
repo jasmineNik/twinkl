@@ -52,28 +52,4 @@ class AuthController extends BaseController
         $token = $user->createToken($user->name.'-AuthToken')->plainTextToken;
         return $this->success( __('auth.login.success'), ['access_token' => $token] );
     }
-
-    /**
-     * @brief for revoking the token that was used to authenticate the current request
-     * @param Request $request
-     * @return JsonResponse
-     */
-    public function logout(Request $request)
-    {
-        $request->user()->currentAccessToken()->delete();
-
-        return $this->success(__('auth.logout.success'));
-    }
-
-    /**
-     * @brief for revoking all tokens
-     * @param Request $request
-     * @return JsonResponse
-     */
-    public function logoutAll(Request $request): JsonResponse
-    {
-        $request->user()->tokens()->delete();
-
-        return $this->success(__('auth.logout_all.success'));
-    }
 }
