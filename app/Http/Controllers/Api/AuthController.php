@@ -28,11 +28,20 @@ class AuthController extends BaseController
             'type_id' => $data['type_id'],
             'subscription_id' => $data['subscription_id']
         ]);
+        // generating an access token for the user
+        // it's optional for register it depends on our features
         $token = $user->createToken('auth_token')->plainTextToken;
+
+        // Sending an email to registered user
         Notification::send($user, new UserRegister($user));
+
         return $this->success( __('auth.register.success'), ['access_token' => $token]);
     }
 
+    /**
+     * @param UserRequest $request
+     * @return JsonResponse
+     */
     public function login(UserRequest $request): JsonResponse
     {
         $data = $request->validated();
@@ -44,9 +53,27 @@ class AuthController extends BaseController
         return $this->success( __('auth.login.success'), ['access_token' => $token] );
     }
 
-    public function logout(Request $request): JsonResponse
+    /**
+     * @brief for revoking the token that was used to authenticate the current request
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function logout(Request $request)
     {
-        auth()->user()->tokens()->delete();
+        $request->user()->currentAccessToken()->delete();
+
         return $this->success(__('auth.logout.success'));
+    }
+
+    /**
+     * @brief for revoking all tokens
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function logoutAll(Request $request): JsonResponse
+    {
+        $request->user()->tokens()->delete();
+
+        return $this->success(__('auth.logout_all.success'));
     }
 }

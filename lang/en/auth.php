@@ -22,6 +22,9 @@ return [
     'logout' => [
         'success' => 'User logout successfully.',
     ],
+    'logout_all' => [
+        'success' => 'User logout from all sessions successfully.',
+    ],
     'register' => [
         'success' => 'User created successfully.',
         'error' => 'Error creating user.',
