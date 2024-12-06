@@ -42,6 +42,9 @@ RUN docker-php-ext-install  \
     bcmath \
     zip
 
+# Add application
+WORKDIR /var/www/html
+
 # 5. Composer.
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 COPY . .
@@ -50,5 +53,4 @@ RUN chown www-data:www-data storage -R
 RUN chmod -R 777 storage
 # install all dependances for laravel
 RUN composer install
-# Generate the app key
-RUN php artisan key:generate
+
