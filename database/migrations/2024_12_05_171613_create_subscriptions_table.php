@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->foreignId('subscription_id')
-                ->nullable()
-                ->constrained();
+        Schema::create('subscriptions', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            //todo add other fields for subscription feature (price, duration etc)
+            // in upcoming migration file if needed
+            $table->timestamps();
         });
     }
 
@@ -23,8 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropForeign('users_subscription_id_foreign');
-        });
+        Schema::dropIfExists('subscriptions');
     }
 };

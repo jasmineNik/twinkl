@@ -5,7 +5,7 @@ namespace App\Http\Requests\Api;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Password;
 
-class CreateUserRequest extends FormRequest
+class StoreUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -30,7 +30,9 @@ class CreateUserRequest extends FormRequest
                     ->mixedCase()
                     ->numbers()
                     ->symbols()],
-            'last_name'=>'required|string'
+            'last_name'=>'required|string',
+            'type_id'=>'required|integer|exists:types,id',
+            'subscription_id'=>'required|integer|exists:subscriptions,id',
         ];
     }
 }

@@ -2,24 +2,24 @@
 
 namespace Database\Seeders;
 
-use App\Models\Subscribe;
+use App\Models\Type;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class SubscribeSeeder extends Seeder
+class TypeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Subscribe::factory()
+        Type::factory()
             ->count(4)
             ->sequence(
-                ['name' => 'student'],
-                ['name' => 'teacher'],
-                ['name' => 'parent'],
-                ['name' => 'private tutor']
+                ['name' => 'Student'],
+                ['name' => 'Teacher'],
+                ['name' => 'Parent'],
+                ['name' => 'Private tutor']
             )->create();
     }
 }

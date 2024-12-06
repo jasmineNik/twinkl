@@ -2,7 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\Subscribe;
+use App\Models\Subscription;
+use App\Models\Type;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -30,7 +31,8 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
-            'subscribe_id' => Subscribe::all()->random()->id,
+            'subscription_id' => Subscription::all()->random()->id,
+            'type_id' => Type::all()->random()->id,
             'last_name' => fake()->lastName(),
         ];
     }
