@@ -69,26 +69,6 @@
 				}
 			},
 			"response": []
-		},
-		{
-			"name": "logout",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8008/api/logout",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8008",
-					"path": [
-						"api",
-						"logout"
-					]
-				}
-			},
-			"response": []
 		}
 	],
 	"auth": {

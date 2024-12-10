@@ -49,8 +49,10 @@ WORKDIR /var/www/html
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 COPY . .
 
-RUN chown www-data:www-data storage -R
-RUN chmod -R 777 storage
+RUN chown -R www-data:www-data ./src/storage
+RUN chmod -R 777 ./src/storage
 # install all dependances for laravel
-RUN composer install
+RUN cd src && composer install
+
+#cd /var/www/html/ && composer install
 

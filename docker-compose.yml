@@ -4,14 +4,14 @@ services:
     app:
         build:
             context: '.'
-        container_name: TwinklServer
+        container_name: twinkl-app
         ports:
             - "8008:80"
         environment:
             - APACHE_RUN_USER=#1000
             - APACHE_RUN_GROUP=#1000
         volumes:
-            - .:/var/www/html
+            - ./src:/var/www/html
             - ./php:/usr/local/etc/php/conf.d
         networks:
             backend:
@@ -27,7 +27,7 @@ services:
             - "33066:3306"
         volumes:
             - ./run/var:/var/lib/mysql
-        env_file: .env
+        env_file: ./src/.env
         networks:
             backend:
                 aliases:
@@ -38,7 +38,7 @@ services:
             - mysql-db
         ports:
             - "8009:80"
-        env_file: .env
+        env_file: ./src/.env
         networks:
             backend:
                 aliases:
