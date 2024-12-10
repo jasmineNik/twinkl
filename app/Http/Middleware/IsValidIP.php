@@ -29,7 +29,7 @@ class IsValidIP
     protected function isValidIP($ips): bool
     {
         $filtered = array_filter($ips, function ($ip) {
-            return !filter_var($ip, FILTER_VALIDATE_IP);
+            return filter_var($ip, FILTER_VALIDATE_IP);
         });
         return !empty($filtered);
     }

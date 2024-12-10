@@ -50,7 +50,7 @@ return Application::configure(basePath: dirname(__DIR__))
                 }
 
                 if ($e instanceof ValidationException) {
-                    $message = __('bad_request');
+                    $message = __('messages.bad_request');
                     $data = $e->validator->errors();
                 }
 
