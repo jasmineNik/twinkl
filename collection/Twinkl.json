@@ -79,30 +79,6 @@
 				"description": "| Filed | required | **type** | Possible values |\n| --- | --- | --- | --- |\n| name | required | string |  |\n| last_name | required | string |  |\n| email | required | email | string |\n| type_id | required | int | 1 - Student  <br>2 -Teacher  <br>3 - Parent  <br>4 - Private tutor |\n| subscription_id | required | int | 1 - Free (trial)  <br>2 - Monthly  <br>3 - 3 months  <br>4 - Yearly |\n| password | required | string | it must contain letters, mixed case, number and symbol |\n| password_confirmation | required | string |  |"
 			},
 			"response": []
-		},
-		{
-			"name": "logout",
-			"id": "4679b534-fbb2-406a-8c99-6355e5c56c60",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8008/api/logout",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8008",
-					"path": [
-						"api",
-						"logout"
-					]
-				}
-			},
-			"response": []
 		}
 	],
 	"auth": {
